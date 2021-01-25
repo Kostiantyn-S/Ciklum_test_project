@@ -29,7 +29,6 @@ webpack-frontend-template
 ├── package.json
 ├── .gitignore
 ├── .eslintrc
-└── .gitignore
 ```
 
 ## Commands
