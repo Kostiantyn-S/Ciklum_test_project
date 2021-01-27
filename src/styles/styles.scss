@@ -1,7 +1,37 @@
+%tableCell {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+@font-face {
+    font-family: "Clickuper";
+    src: url("../assets/fonts/Clickuper.ttf");
+}
+$titleFont: Clickuper;
+
 .App {
     .Header {
-        padding: 5% 3% 3% 3%;
+        padding: 3% 3% 3% 3%;
         display: grid;
         grid-template-columns: 4fr 1fr 1fr;
+
+        &-title {
+            font-size: 36px;
+            font-family: $titleFont;
+        }
+    }
+
+    .Table {
+        padding: 20px;
+        width: 100%;
+
+        th {
+            @extend %tableCell;
+        }
+
+        td {
+            @extend %tableCell;
+        }
     }
 }
