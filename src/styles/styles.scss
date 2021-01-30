@@ -15,6 +15,18 @@ $selectFont: RFKrabuler;
     font-family: $selectFont;
 }
 
+%flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%CreateEventText {
+    padding-right: 30px;
+    font-family: $selectFont;
+    font-size: 20px;
+}
+
 @font-face {
     font-family: "Clickuper";
     src: url("../assets/fonts/Clickuper.ttf");
@@ -73,6 +85,55 @@ $selectFont: RFKrabuler;
 
         td {
             @extend %tableCell;
+        }
+    }
+
+    .CreateEvent {
+        position: absolute;
+        top: 20%;
+        left: 10%;
+        width: 80%;
+        height: 60%;
+        border: 2px solid black;
+        border-radius: 10px;
+        background: cadetblue;
+
+        &-title {
+            font-size: 36px;
+            font-family: $titleFont;
+            text-align: center;
+        }
+
+        &-name {
+            @extend %flexCenter;
+            padding-top: 20px;
+
+
+            div {
+                @extend %CreateEventText;
+                width: 180px;
+            }
+
+            input {
+                font-family: $selectFont;
+                font-size: 20px;
+                width: 220px
+            }
+        }
+
+        &-users {
+            @extend %flexCenter;
+            padding-top: 20px;
+
+            div {
+                @extend %CreateEventText;
+                width: 180px;
+            }
+
+            select {
+                width: 228px;
+                height: 30px;
+            }
         }
     }
 }
