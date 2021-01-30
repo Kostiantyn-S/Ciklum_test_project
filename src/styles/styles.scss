@@ -66,6 +66,9 @@ $selectFont: RFKrabuler;
 
         th {
             @extend %tableCell;
+            font-size: 14px;
+            font-family: $titleFont;
+            background-color: burlywood;
         }
 
         td {
