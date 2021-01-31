@@ -1,0 +1,151 @@
+%flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%CreateEventText {
+    padding-right: 30px;
+    font-family: $selectFont;
+    font-size: 20px;
+}
+
+%Buttons {
+    font-size: 24px;
+    padding: 5px 0 5px 0;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-family: $selectFont;
+}
+
+.App {
+    .CreateEvent {
+        position: absolute;
+        top: 20%;
+        left: 10%;
+        width: 80%;
+        height: 60%;
+        border: 2px solid black;
+        border-radius: 10px;
+        background: cadetblue;
+
+        &-title {
+            font-size: 36px;
+            font-family: $titleFont;
+            text-align: center;
+        }
+
+        &-name {
+            @extend %flexCenter;
+            padding-top: 20px;
+
+
+            div {
+                @extend %CreateEventText;
+                width: 180px;
+            }
+
+            input {
+                @extend %CreateEventText;
+                padding-left: 0;
+                width: 220px;
+                border: 2px solid black;
+                border-radius: 5px;
+            }
+        }
+
+        &-users {
+            @extend %flexCenter;
+            padding-top: 20px;
+
+            div {
+                @extend %CreateEventText;
+                width: 180px;
+            }
+
+            select {
+                @extend %CreateEventText;
+                padding-left: 0;
+                width: 254px;
+                height: 30px;
+                border: 2px solid black;
+                border-radius: 5px;
+            }
+        }
+
+        &-day {
+            @extend %flexCenter;
+            padding-top: 20px;
+
+            div {
+                @extend %CreateEventText;
+                width: 180px;
+            }
+
+            select {
+                @extend %CreateEventText;
+                padding-left: 0;
+                width: 254px;
+                height: 30px;
+                border: 2px solid black;
+                border-radius: 5px;
+            }
+        }
+
+        &-time {
+            @extend %flexCenter;
+            padding-top: 20px;
+
+            div {
+                @extend %CreateEventText;
+                width: 180px;
+            }
+
+            select {
+                @extend %CreateEventText;
+                padding-left: 0;
+                width: 254px;
+                height: 30px;
+                border: 2px solid black;
+                border-radius: 5px;
+            }
+        }
+
+        &-buttons {
+            @extend %flexCenter;
+            padding-top: 40px;
+
+            &-cancel {
+                :hover {
+                    background-color: rgb(136, 176, 250);
+                }
+    
+                a {
+                    @extend %Buttons;
+                    display: block;
+                    width: 150px;
+                    background-color: rgb(226, 55, 55);
+                    padding: 5px 20px 10px 20px;
+                    cursor: pointer;
+                }
+            }
+
+            &-create {
+                padding-left: 50px;
+                
+                :hover {
+                    background-color: rgb(136, 176, 250);
+                }
+    
+                a {
+                    @extend %Buttons;
+                    display: block;
+                    width: 150px;
+                    background-color: rgb(143, 235, 143);
+                    padding: 5px 20px 10px 20px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

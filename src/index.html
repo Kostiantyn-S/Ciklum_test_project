@@ -12,13 +12,13 @@
     <header class="Header">
         <div class="Header-title">Calendar</div>
         <div class="Header-filter">
-            <select>kgjfdkgjfdkg
+            <select>
                 <option>Vasia</option>
                 <option>Vania</option>
                 <option>Petya</option>
             </select>
         </div>
-        <div class="Header-button">
+        <div class="Header-button" id="newEventButton">
             <a> + new Event</a>
         </div>
     </header>
@@ -32,7 +32,7 @@
                 <th>Thu</th>
                 <th>Fri</th>
             </tr>
-            <tr>
+            <tr id="9:00">
                 <th>9:00</th>
                 <td></td>
                 <td></td>
@@ -40,7 +40,7 @@
                 <td></td>
                 <td></td>
             </tr>
-            <tr>
+            <tr id="10:00">
                 <th>10:00</th>
                 <td></td>
                 <td></td>
@@ -48,7 +48,7 @@
                 <td></td>
                 <td></td>
             </tr>
-            <tr>
+            <tr id="11:00">
                 <th>11:00</th>
                 <td></td>
                 <td></td>
@@ -56,7 +56,7 @@
                 <td></td>
                 <td></td>
             </tr>
-            <tr>
+            <tr id="12:00">
                 <th>12:00</th>
                 <td></td>
                 <td></td>
@@ -64,7 +64,7 @@
                 <td></td>
                 <td></td>
             </tr>
-            <tr>
+            <tr id="13:00">
                 <th>13:00</th>
                 <td></td>
                 <td></td>
@@ -72,7 +72,7 @@
                 <td></td>
                 <td></td>
             </tr>
-            <tr>
+            <tr id="14:00">
                 <th>14:00</th>
                 <td></td>
                 <td></td>
@@ -80,7 +80,7 @@
                 <td></td>
                 <td></td>
             </tr>
-            <tr>
+            <tr id="15:00">
                 <th>15:00</th>
                 <td></td>
                 <td></td>
@@ -88,7 +88,7 @@
                 <td></td>
                 <td></td>
             </tr>
-            <tr>
+            <tr id="16:00">
                 <th>16:00</th>
                 <td></td>
                 <td></td>
@@ -96,7 +96,7 @@
                 <td></td>
                 <td></td>
             </tr>
-            <tr>
+            <tr id="17:00">
                 <th>17:00</th>
                 <td></td>
                 <td></td>
@@ -106,7 +106,7 @@
             </tr>
         </table>
     </main>
-    <form class="CreateEvent">
+    <form class="CreateEvent invisible" id="CreateEvent">
         <div class="CreateEvent-title">Create new event</div>
         <div class="CreateEvent-name">
             <div>Name of the event:</div>
@@ -120,7 +120,7 @@
                 <option>Petya</option>
             </select>
         </div>
-        <div>
+        <div class="CreateEvent-day">
             <div>Day:</div>
             <select>
                 <option>Monday</option>
@@ -130,7 +130,7 @@
                 <option>Friday</option>
             </select>
         </div>
-        <div>
+        <div class="CreateEvent-time">
             <div>Time:</div>
             <select>
                 <option>9:00</option>
@@ -144,10 +144,26 @@
                 <option>17:00</option>
             </select>
         </div>
-        <div>
-            <button>Cancel</button>
-            <button>Create</button>
+        <div class="CreateEvent-buttons">
+            <div class="CreateEvent-buttons-cancel" id="CreateEventCancel">
+                <a>Cancel</a>
+            </div>
+            <div class="CreateEvent-buttons-create">
+                <a>Create</a>
+            </div>
         </div>
     </form>
+    <div class="Alert invisible">Failed to create an event. Time slot is already booked.</div>
+    <div class="DeleteEventTooltip invisible">
+        <div class="DeleteEventTooltip-title">Are you sure you want to delete "Retrospective" event?</div>
+        <div class="DeleteEventTooltip-buttons">
+            <div class="DeleteEventTooltip-buttons-no">
+                <a>No</a>
+            </div>
+            <div class="DeleteEventTooltip-buttons-yes">
+                <a>Yes</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

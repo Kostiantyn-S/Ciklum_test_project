@@ -1,0 +1,23 @@
+%tableCell {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.App {
+    .Table {
+        padding: 20px;
+        width: 100%;
+
+        th {
+            @extend %tableCell;
+            font-size: 14px;
+            font-family: $titleFont;
+            background-color: burlywood;
+        }
+
+        td {
+            @extend %tableCell;
+        }
+    }
+}
