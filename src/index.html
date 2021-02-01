@@ -110,11 +110,11 @@
         <div class="CreateEvent-title">Create new event</div>
         <div class="CreateEvent-name">
             <div>Name of the event:</div>
-            <input>
+            <input id="CreateEventName">
         </div>
         <div class="CreateEvent-users">
             <div>Participans:</div>
-            <select>
+            <select id="CreateEventUsers">
                 <option>Vasia</option>
                 <option>Vania</option>
                 <option>Petya</option>
@@ -122,7 +122,7 @@
         </div>
         <div class="CreateEvent-day">
             <div>Day:</div>
-            <select>
+            <select id="CreateEventDay">
                 <option>Monday</option>
                 <option>Tuesday</option>
                 <option>Wednesday</option>
@@ -132,7 +132,7 @@
         </div>
         <div class="CreateEvent-time">
             <div>Time:</div>
-            <select>
+            <select id="CreateEventTime">
                 <option>9:00</option>
                 <option>10:00</option>
                 <option>11:00</option>
@@ -148,12 +148,12 @@
             <div class="CreateEvent-buttons-cancel" id="CreateEventCancel">
                 <a>Cancel</a>
             </div>
-            <div class="CreateEvent-buttons-create">
+            <div class="CreateEvent-buttons-create" id="CreateEventCreate">
                 <a>Create</a>
             </div>
         </div>
     </form>
-    <div class="Alert invisible">Failed to create an event. Time slot is already booked.</div>
+    <div class="Alert invisible" id="Alert"></div>
     <div class="DeleteEventTooltip invisible">
         <div class="DeleteEventTooltip-title">Are you sure you want to delete "Retrospective" event?</div>
         <div class="DeleteEventTooltip-buttons">
