@@ -18,6 +18,27 @@
 
         td {
             @extend %tableCell;
+            width: 16%;
         }
+
+        .Evented {
+            background-color: mediumspringgreen;
+
+            &-container {
+                display: flex;
+            }
+
+            &-text {
+                font-family: $selectFont;
+                font-weight: 10;
+            }
+
+            &-del {
+                font-family: $selectFont;
+                font-weight: 10;
+                margin-left: 30px;
+            }
+        }
+
     }
 }

@@ -5,7 +5,10 @@ export default class EventObject extends Object {
         this.users = users_;
         this.day = day_;
         this.time = time_;
-        this.visual = "<div class='EventObject'>" + this.name + "</div>";
+        this.visual = `<div class="Evented-container">
+                            <div class="Evented-text">${this.name}</div>
+                            <div class="Evented-del" id="${this.day}_${this.time}">X</div>
+                        </div>`;
         this.dayIndex = this.getDayIndex(this.day);
     }
 

@@ -13,6 +13,11 @@ export default class Main extends Object {
     init(){
         this.tools.element("newEventButton").addEventListener("click", this.newEventHandler.bind(this));
         this.tools.renderEvents();
+        this.tools.element("Filter").addEventListener("change" , this.onChangeFilter.bind(this));
+    }
+
+    onChangeFilter(e) {
+        this.tools.filterEvents([e.target.value]);
     }
 
     newEventHandler(e) {

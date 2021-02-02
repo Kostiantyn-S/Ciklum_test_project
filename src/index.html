@@ -11,7 +11,7 @@
 <body class="App">
     <header class="Header">
         <div class="Header-title">Calendar</div>
-        <div class="Header-filter">
+        <div class="Header-filter" id="Filter">
             <select>
                 <option>Vasia</option>
                 <option>Vania</option>
@@ -23,7 +23,7 @@
         </div>
     </header>
     <main>
-        <table class="Table">
+        <table class="Table" id="Table">
             <tr>
                 <th>Time</th>
                 <th>Mon</th>
@@ -110,7 +110,7 @@
         <div class="CreateEvent-title">Create new event</div>
         <div class="CreateEvent-name">
             <div>Name of the event:</div>
-            <input id="CreateEventName">
+            <input id="CreateEventName" maxlength="35">
         </div>
         <div class="CreateEvent-users">
             <div>Participans:</div>
