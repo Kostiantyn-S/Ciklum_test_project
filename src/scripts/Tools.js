@@ -23,8 +23,32 @@ export default class Tools extends Object {
             let slot = this.element(event.time).children[event.dayIndex];
             slot.innerHTML = event.visual;
             slot.classList.add("Evented");
+            let delButton = this.element(event.day + "_" + event.time);
+            delButton.addEventListener("click", this.delButtonHandler.bind(this, event));
         }
 
+    }
+
+    delButtonHandler(event, e) {
+        this.element("DelTooltip").classList.add("visible");
+        this.element("DelTooltipNo").addEventListener("click", this.deltooltipNoHandler.bind(this));
+        this.element("DelTooltipYes").addEventListener("click", this.deltooltipYesHandler.bind(this, event))
+    }
+
+    deltooltipYesHandler(event, e) {
+        for(let i = 0; i < this.localBase.length; i++) {
+            if(this.localBase[i].name == event.name) {
+                this.localBase.splice(i, 1); 
+            }
+        }
+        this.saveBase(this.localBase);
+        this.clearTable();
+        this.renderEvents();
+        this.deltooltipNoHandler.call(this);
+    }
+
+    deltooltipNoHandler(e) {
+        this.element("DelTooltip").classList.remove("visible");
     }
 
     clearTable() {

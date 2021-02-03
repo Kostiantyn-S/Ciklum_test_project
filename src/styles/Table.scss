@@ -19,6 +19,7 @@
         td {
             @extend %tableCell;
             width: 16%;
+            padding: 5px;
         }
 
         .Evented {
@@ -26,17 +27,24 @@
 
             &-container {
                 display: flex;
+                justify-content: space-between;
             }
 
             &-text {
                 font-family: $selectFont;
                 font-weight: 10;
+                display: flex;
+                align-items: center;
             }
 
             &-del {
                 font-family: $selectFont;
+                font-size: 30px;
                 font-weight: 10;
                 margin-left: 30px;
+                background-color: red;
+                padding: 0px 15px;
+                border-radius: 250px;
             }
         }
 
