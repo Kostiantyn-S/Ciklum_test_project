@@ -8,24 +8,28 @@ export default class Main extends Object {
         super();
         this.tools = new Tools();
         this.newEvent = new NewEvent();
+        this.filter = new CustomComboBox("FilterUsers", "Filter", ["Vasia", "Vania", "Petya"]);
         this.init();
-        this.filter = new CustomComboBox("FilterUsers", "Filter", ["Vasia", "Vania", "Petya"]/*, 481, 90*/);
     }
 
-    init(){
-        this.tools.element("newEventButton").addEventListener("click", this.newEventHandler.bind(this));
-        this.tools.renderEvents();
-       //this.tools.element("Filter").addEventListener("change" , this.onChangeFilter.bind(this));
+    init() {
+        const tools = this.tools;
+        
+        tools.element("newEventButton").addEventListener("click", this.newEventHandler.bind(this));
+        tools.element("FilterUsers").addEventListener("customChange" , this.onChangeFilter.bind(this));
+        tools.renderEvents();
     }
 
-    onChangeFilter(e) {
-        this.tools.filterEvents([e.target.value]);
+    onChangeFilter(event) {
+        const tools = this.tools;
+        
+        tools.filterEvents(event.checkedUsers);
     }
 
-    newEventHandler(e) {
-        let element = this.tools.element("CreateEvent");
-        if(!element.classList.contains("visible")) {
-            this.tools.element("CreateEvent").classList.add("visible");
-        }
+    newEventHandler(event) {
+        const tools = this.tools;
+        const window = tools.element("CreateEvent");
+
+        if(!window.classList.contains("visible")) window.classList.add("visible");
     }
 }

@@ -5,7 +5,6 @@
 }
 
 %CreateEventText {
-    padding-right: 30px;
     font-family: $selectFont;
     font-size: 20px;
 }
@@ -48,7 +47,7 @@
             input {
                 @extend %CreateEventText;
                 padding-left: 0;
-                width: 220px;
+                width: 254px;
                 border: 2px solid black;
                 border-radius: 5px;
             }
@@ -58,7 +57,7 @@
             @extend %flexCenter;
             padding-top: 20px;
 
-            div {
+            &-title {
                 @extend %CreateEventText;
                 width: 180px;
             }
@@ -89,6 +88,7 @@
                 height: 30px;
                 border: 2px solid black;
                 border-radius: 5px;
+                padding-left: 30px;
             }
         }
 
@@ -108,6 +108,7 @@
                 height: 30px;
                 border: 2px solid black;
                 border-radius: 5px;
+                padding-left: 30px;
             }
         }
 

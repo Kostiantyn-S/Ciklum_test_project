@@ -1,6 +1,7 @@
 ## Ciklum_test_project
 
 * Test project to Ciklum JS intership. Simple meeting planning calendar for a meeting room.
+* All events are situated in localeStorage.
 
 ## Features
 

@@ -1,10 +1,10 @@
 export default class EventObject extends Object {
-    constructor(name_, users_, day_, time_) {
+    constructor(name, users, day, time) {
         super();
-        this.name = name_;
-        this.users = users_;
-        this.day = day_;
-        this.time = time_;
+        this.name = name;
+        this.users = users;
+        this.day = day;
+        this.time = time;
         this.visual = `<div class="Evented-container">
                             <div class="Evented-text">${this.name}</div>
                             <div class="Evented-del" id="${this.day}_${this.time}">X</div>

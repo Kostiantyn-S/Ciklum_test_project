@@ -1,40 +1,57 @@
 import Tools from "./Tools";
 import EventObject from "./EventObject";
+import CustomComboBox from "./CustomComboBox";
 
 export default class NewEvent extends Object {
     constructor() {
         super();
         this.tools = new Tools();
-        this.tools.element("CreateEventCancel").addEventListener("click", this.cancelHandler.bind(this));
-        this.tools.element("CreateEventCreate").addEventListener("click", this.createHandler.bind(this));
+        this.createCombo = new CustomComboBox("CreateUsers", "Choose", ["Vasia", "Vania", "Petya"]);
+        this.init();
     }
 
-    cancelHandler(e) {
-        this.tools.element("CreateEvent").classList.remove("visible");
+    init() {
+        const tools = this.tools;
+
+        tools.element("CreateEventCancel").addEventListener("click", this.cancelHandler.bind(this));
+        tools.element("CreateEventCreate").addEventListener("click", this.createHandler.bind(this));
     }
 
-    createHandler(e) {
-        let name = this.tools.element("CreateEventName").value;
-        let users = [this.tools.element("CreateEventUsers").value];
-        let day = this.tools.element("CreateEventDay").value;
-        let time = this.tools.element("CreateEventTime").value;
-        let event = new EventObject(name, users, day, time);
-        if(this.validateEvent(event)) {
-            this.tools.localBase.push(event);
-            this.tools.saveBase();
-            this.tools.element("CreateEvent").classList.remove("visible");
-            this.tools.renderEvents();
+    cancelHandler(event) {
+        const tools = this.tools;
+
+        tools.element("CreateEvent").classList.remove("visible");
+    }
+
+    createHandler(event) {
+        const tools = this.tools;
+        const comboBox = this.createCombo;
+        const users = comboBox.value;
+        const name = tools.element("CreateEventName").value;
+        const day = tools.element("CreateEventDay").value;
+        const time = tools.element("CreateEventTime").value;
+        const eventObj = new EventObject(name, users, day, time);
+
+        if(this.validateEvent(eventObj)) {
+            tools.localBase.push(eventObj);
+            tools.saveBase();
+            tools.element("CreateEvent").classList.remove("visible");
+            tools.renderEvents();
         }
     }
 
     validateEvent(event) {
+        const tools = this.tools;
+
+        tools.getBase();
+
         if(event.name.length < 1) {
             this.showAlert("Enter event name please.");
             return false;
         }
 
-        for(let i = 0; i < this.tools.localBase.length; i++) {
-            let savedEvent = this.tools.localBase[i];
+        for(let i = 0; i < tools.localBase.length; i++) {
+            let savedEvent = tools.localBase[i];
             if(event.day == savedEvent.day && event.time == savedEvent.time) {
                 this.showAlert("Failed to create an event. Time slot is already booked.");
                 return false;
@@ -45,7 +62,9 @@ export default class NewEvent extends Object {
     }
 
     showAlert(body) {
-        let tooltip = this.tools.element("Alert");
+        const tools = this.tools;
+        let tooltip = tools.element("Alert");
+
         tooltip.innerHTML = body;
         tooltip.classList.add("visible");
         setTimeout(() => tooltip.classList.remove("visible"), 2500);
