@@ -11,6 +11,47 @@
 $titleFont: Clickuper;
 $selectFont: RFKrabuler;
 
+%filterAndButton {
+    font-size: 24px;
+    padding: 5px 0 5px 0;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-family: $selectFont;
+}
+
+%tableCell {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+%flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%CreateEventText {
+    font-family: $selectFont;
+    font-size: 20px;
+}
+
+%Buttons {
+    font-size: 24px;
+    padding: 5px 0 5px 0;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-family: $selectFont;
+}
+
+%TooltipButtons {
+    font-size: 24px;
+    padding: 5px 0 5px 0;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-family: $selectFont;
+}
+
 @import 'Header';
 @import 'Table';
 @import 'CreateEvent';
