@@ -6,9 +6,9 @@ export default class Tools extends Object {
     }
 
     init() {
-        let base = this.localBase;
+        const base = this.localBase;
 
-        if(!base)base = [];
+        if(!base)this.localBase = [];
     }
 
     element(id) {
