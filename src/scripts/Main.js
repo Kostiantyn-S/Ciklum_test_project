@@ -22,7 +22,7 @@ export default class Main extends Object {
 
     onChangeFilter(event) {
         const tools = this.tools;
-        
+        tools.getBase();
         tools.filterEvents(event.checkedUsers);
     }
 

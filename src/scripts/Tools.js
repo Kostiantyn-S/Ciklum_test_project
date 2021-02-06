@@ -16,15 +16,11 @@ export default class Tools extends Object {
     }
 
     saveBase() {
-        const base = this.localBase;
-
-        localStorage.setItem('Events', JSON.stringify(base));
+        localStorage.setItem('Events', JSON.stringify(this.localBase));
     }
 
     getBase() {
-        let base = this.localBase;
-
-        base = JSON.parse(localStorage.getItem('Events'));
+        this.localBase = JSON.parse(localStorage.getItem('Events')) || [];
     }
 
     renderEvents() {
@@ -85,10 +81,9 @@ export default class Tools extends Object {
     }
 
     filterEvents(needed) {
-        const base = this.localBase;
-
         this.clearTable();
         this.getBase();
+        const base = this.localBase;
 
         for(let i = 0; i < base.length; i++) {
             let event = base[i];
