@@ -20,23 +20,25 @@ export default class CustomComboBox extends Object {
         comboBox.classList.add("CustomComboBox");
         comboBox.innerHTML = `<div><div class="CustomComboBox-title">${title}</div>
                                     <div class="CustomComboBox-triangle"></div></div>` + this.renderOptions(options);
-        comboBox.children[0].addEventListener("click", this.comboBoxHandler.bind(this));
         this.addListeners();
     }
 
     comboBoxHandler(event) {
         const id = this.id;
+        const tools = this.tools;
 
-        this.tools.element(`CustomComboBox_${id}`).classList.toggle("visible");
+        tools.element(`CustomComboBox_${id}`).classList.toggle("visible");
     }
 
     addListeners() {
+        const comboBox = this.element;
         const id = this.id;
         const parent = this.tools.element(`CustomComboBox_${id}`);
 
         for(let i = 0; i < parent.children.length; i++) {
             parent.children[i].children[0].addEventListener("change", this.changeCheckboxHandler.bind(this, parent.children[i].children[1].innerHTML));
         }
+        comboBox.children[0].addEventListener("click", this.comboBoxHandler.bind(this));
     }
 
     changeCheckboxHandler(value, event) {
@@ -70,5 +72,12 @@ export default class CustomComboBox extends Object {
         return `<div class="CustomComboBox-list invisible" id="CustomComboBox_${id}">
                     ${list}
                 </div>`;
+    }
+
+    close() {
+        const id = this.id;
+        const tools = this.tools;
+        
+        if(tools.element(`CustomComboBox_${id}`).classList.contains("visible")) tools.element(`CustomComboBox_${id}`).classList.remove("visible");
     }
 }

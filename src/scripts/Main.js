@@ -22,6 +22,7 @@ export default class Main extends Object {
 
     onChangeFilter(event) {
         const tools = this.tools;
+
         tools.getBase();
         tools.filterEvents(event.checkedUsers);
     }
@@ -29,7 +30,9 @@ export default class Main extends Object {
     newEventHandler(event) {
         const tools = this.tools;
         const window = tools.element("CreateEvent");
+        const filter = this.filter;
 
+        filter.close();
         if(!window.classList.contains("visible")) window.classList.add("visible");
     }
 }

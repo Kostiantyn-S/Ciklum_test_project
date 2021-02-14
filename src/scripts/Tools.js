@@ -39,6 +39,7 @@ export default class Tools extends Object {
     }
 
     delButtonHandler(ourEvent, event) {
+        if(this.element(`CustomComboBox_FilterUsers`).classList.contains("visible")) this.element(`CustomComboBox_FilterUsers`).classList.remove("visible");
         this.element("DelTooltip").classList.add("visible");
         this.element("DelTooltipNo").addEventListener("click", this.deltooltipNoHandler.bind(this));
         this.element("DelTooltipYes").addEventListener("click", this.deltooltipYesHandler.bind(this, ourEvent))

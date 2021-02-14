@@ -19,7 +19,9 @@ export default class NewEvent extends Object {
 
     cancelHandler(event) {
         const tools = this.tools;
+        const comboBox = this.createCombo;
 
+        comboBox.close();
         tools.element("CreateEvent").classList.remove("visible");
     }
 
@@ -32,6 +34,7 @@ export default class NewEvent extends Object {
         const time = tools.element("CreateEventTime").value;
         const eventObj = new EventObject(name, users, day, time);
 
+        comboBox.close();
         if(this.validateEvent(eventObj)) {
             tools.localBase.push(eventObj);
             tools.saveBase();
